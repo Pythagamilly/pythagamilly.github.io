@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Books on Page from Milena Snoek</title>
+    <link>https://milena.snoek.com.au/code/golang/</link>
+    <description>Recent content in Books on Page from Milena Snoek</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 05 Mar 2022 06:05:33 +1100</lastBuildDate><atom:link href="https://milena.snoek.com.au/code/golang/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Use Go Template to Iterate Through a Map</title>
+      <link>https://milena.snoek.com.au/code/golang/how-to-use-go-template-to-iterate-through-a-map/</link>
+      <pubDate>Sat, 02 Apr 2022 05:57:12 +1100</pubDate>
+      
+      <guid>https://milena.snoek.com.au/code/golang/how-to-use-go-template-to-iterate-through-a-map/</guid>
+      <description>How to use Go html/template to iterate through a map   In this example we&#39;ll use Golang&#39;s html/template package and iterate through a map in our html template.   You can check out a working example of this code in the Go Playground.  Let&#39;s say we have the following structs: type Employee struct { FirstName string LastName string Email string } type Content struct { Department string Employees map[string]Employee }  The Content struct is what we want to display in our html template.</description>
+    </item>
+    
+  </channel>
+</rss>

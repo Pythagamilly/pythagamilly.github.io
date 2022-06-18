@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>
+        Page from Milena Snoek
+        </title>
+  
+  
+  
+  <link rel="stylesheet" href="https://milena.snoek.com.au/sass/main.a5cca83c364a28b7da592d9aa2d67b10afb612cd7e6ce2ef0b7feb5108f1a7350ab23430cdf00b620802690589e198716e16c36b82889a495b1ee99cba22583d.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+
+  <meta
+    name="description"
+    content="" />
+  <link rel="icon" type="image/png" href="/imgs/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-fluid ns-container-post-html">
+  
+  
+  <div class="row justify-content-center pt-4">
+    <div class="col-12 col-lg-7 col-xl-6">
+      <nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li><li class="breadcrumb-item"><a href="/code">Code</a></li><li class="breadcrumb-item"><a href="/code/golang">Golang</a></li><li class="breadcrumb-item">How to Use Go Template to Iterate Through a Map</li></ol>
+</nav>
+
+    </div>
+  </div>
+  
+  
+  <div class="row justify-content-center">
+    <div class="col-11 col-sm-9 col-md-8 col-lg-6 col-xl-5">
+      
+<div class="container-fluid ns-container-post-html">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <h1>
+        How to use Go html/template to iterate through a map
+      </h1>
+      
+      <h4>
+        In this example we'll use Golang's html/template package and iterate through a map in our html template.
+      </h4>
+      
+      <p>
+        You can check out a working example of this code <a href="https://go.dev/play/p/E_fJIWvX4nM" target="_blank">in the Go Playground</a>.
+      </p>
+      
+      <p>
+        Let's say we have the following structs:
+      </p>
+  
+      <pre class="mt-5 mb-5"><code class="language-go">	type Employee struct {
+		FirstName string
+		LastName  string
+		Email     string
+	}
+
+	type Content struct {
+		Department   string
+		Employees map[string]Employee
+	}</code></pre>
+      
+      <p>
+        The Content struct is what we want to display in our html template. It contains a Department string and a map containing Employees.
+      </p>
+
+      <p>
+        Let's populate the struct with one department and employees:
+      </p>
+  
+      <pre class="mt-5 mb-5"><code class="language-go">var c Content
+	c.Department = "Sales"
+	c.Employees = make(map[string]Employee)
+	c.Employees["bSmith"] = Employee{
+        FirstName: "Bob",
+        LastName: "Smith",
+        Email: "bob@smith.com"
+        }
+	c.Employees["mBrown"] = Employee{
+        FirstName: "Michael",
+        LastName: "Brown",
+        Email: "michael@brown.com"
+        }
+	c.Employees["hTennenbaum"] = Employee{
+        FirstName: "Harry",
+        LastName: "Tennenbaum",
+        Email: "harry@tennenbaum.com"
+        }</code></pre>
+      
+      <p>
+        How do we iterate through the map in our template and display each element of our struct Employees? We make use of <b>range</b>.
+      </p>
+  
+      <pre class="mt-5 mb-5"><code class="language-markup">html := `{{define "departments"}}
+&lt;ul>
+  &lt;li>{{.Department}}&lt;/li>
+  {{range $key, $value := .Employees}}
+    &lt;li>{{$value.FirstName}} {{(index $.Employees $key).LastName}} {{$value.Email}}&lt;/li>
+  {{end}}
+&lt;/ul>
+{{end}}`</code></pre>
+     
+      <p>
+        We use <b>range $key, $value := .Employees</b> to get all the keys and values of the Employees map. We can then use <b>$value</b> to reference the Employee struct directly.
+      </p>
+  
+      <pre class="mt-5 mb-5"><code class="language-handlebars">{{$value.FirstName}}</code></pre>
+      
+      <p>
+        We can also use the <b>index</b> keyword to reference the Employee struct using the $key as our key:
+      </p>
+  
+      <pre class="mt-5 mb-5"><code class="language-handlebars">{{(index $.Employees $key).FirstName}}</code></pre>
+      
+      <p>
+        Using <b>index</b> is the equivalent of writing this in Go:
+      </p>
+  
+  
+      <pre class="mt-5 mb-5"><code class="language-go">c.Employees["someKey"].FirstName</code></pre>
+  
+      <p>
+        If you have any questions with this solution, or you can see a mistake I have made, please DM me on <a href="https://twitter.com/heathsnoek" target="_blank">twitter</a>.
+      </p>
+      
+    </div>
+  </div>
+  
+  
+</div>
+    </div>
+  </div>
+  
+  <div class="container-fluid ns-container-footer">
+  <div class="row justify-content-center" style="padding-top: 70px;">
+    <div class="col-auto">
+      <p>
+        <span class="ns-container-footer-say-hello">Say hello</span> <a href="https://www.linkedin.com/in/milena-mascarenhas-snoek-599176/" target="_blank">contact me on <i class="bi bi-linkedin"></i> </a>
+      </p>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+  
+<div class="container-fluid ns-container-footer">
+  <div class="row justify-content-center" style="padding-top: 70px;">
+    <div class="col-auto">
+      <p>
+        <span class="ns-container-footer-say-hello">Say hello</span> <a href="https://www.linkedin.com/in/milena-mascarenhas-snoek-599176/" target="_blank">contact me on <i class="bi bi-linkedin"></i> </a>
+      </p>
+    </div>
+  </div>
+</div>
+
+
+</body>
+
+
+
+
+
+<script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
+
+
+  
+  <script type="text/javascript" src="/js/index.5797e071153892224a959f821b94809cd30a1ea6c89cb4b7be67d6c901544c7d.js" defer></script>
+
+
+
+
+<script type="text/javascript" src="/js/charts/demoChart.cbc6a7792b9271f0803c8afa5576ff785925aaf2ed51553c171ec3e1a0548451.js" defer></script>
+
+
+
+
+
+
+</html>
+
+
