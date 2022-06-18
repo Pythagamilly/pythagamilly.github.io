@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Code on Page from Milena Snoek</title>
-    <link>https://milena.snoek.com.au/code/</link>
+    <link>https://honestanalytics.com.au/code/</link>
     <description>Recent content in Code on Page from Milena Snoek</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 05 Mar 2022 06:05:33 +1100</lastBuildDate><atom:link href="https://milena.snoek.com.au/code/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 05 Mar 2022 06:05:33 +1100</lastBuildDate><atom:link href="https://honestanalytics.com.au/code/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
